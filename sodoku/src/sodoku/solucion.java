@@ -22,13 +22,13 @@ public class solucion {
     public solucion() {        
         bienvenida();
         posicion listaPosiciones[] = new posicion[cantidadNumeros];
-        for (int i=0;i<=cantidadNumeros;i++){
+        for (int i=0;i<cantidadNumeros;i++){
             posicion();
             listaPosiciones[i]=new posicion(fila,columna,numero);
         }        
     }
     /**
-     * mensaje de bienbenida
+     * mensaje de bienvenida
      */
     private void bienvenida(){
         Scanner entrada =new Scanner(System.in);
