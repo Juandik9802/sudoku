@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Juan Diego Pachón
  */
 public class solucion {
-    
+    private boolean continuar= true;
     private boolean ciclo= false;//ciclo para romper el for
     private int fila,columna,numero,cantidadNumeros;
     private int sudoku[][]=new int[9][9];
@@ -20,22 +20,41 @@ public class solucion {
 /**
  *  menu principal
  */
-    public solucion() {        
-        bienvenida();
-        posicion listaPosiciones[] = new posicion[cantidadNumeros];
-        for (int i=0;i<cantidadNumeros;i++){
-            posicion();
-            listaPosiciones[i]=new posicion(fila,columna,numero);
-            System.out.println("////////////////////////////////////////////////////////////////////////////");
-        if (this.ciclo==true){
-            break;
-        }
-        }        
+    public solucion() {
+        Scanner entrada =new Scanner(System.in);
+        do{
+            bienvenida();
+            posicion listaPosiciones[] = new posicion[cantidadNumeros];
+            for (int i=0;i<cantidadNumeros;i++){
+                posicion();
+                listaPosiciones[i]=new posicion(fila,columna,numero);
+                System.out.println("////////////////////////////////////////////////////////////////////////////");
+                if (this.ciclo==true){
+                    break;
+                }
+            }try{
+                System.out.println("Desea continuar");
+                System.out.println("1. continuar");
+                System.out.println("2. salir");
+                int seguir = entrada.nextInt();
+                if (seguir != 1){
+                    continuar= false;
+                }
+            }catch(Exception error){
+                System.out.println("ERROR");
+            }
+            
+        }while(continuar);
+            
+        
     }
+    
+            
+        
     /**
      * mensaje de bienvenida
      */
-    private void bienvenida(){
+    private void bienvenida(){        
         Scanner entrada =new Scanner(System.in);
         System.out.println("Bienvenidos al solucionador del sudoku");
         System.out.println("cuantos numeros fijos desea poner");
@@ -54,9 +73,12 @@ public class solucion {
             columna= entrada.nextInt();
             System.out.println("Por favor digite el número  a colocar el sudoku");
             numero= entrada.nextInt();
+            if (validarfilaColumna(fila,columna)== true){
+                this.ciclo= true;
+            }
+           
         }catch(Exception error){
-            System.out.println("erro de asignacion");
-            
+            System.out.println("Error de asignacion");            
             this.ciclo= true;
         }
         
@@ -69,14 +91,30 @@ public class solucion {
      *         delo contrario es falso
      */
     private boolean validarfilaColumna(int fila, int columna){
-        boolean verificacion=true;
+        boolean verificacion=false;
         if (fila>8 || fila<-1){
             System.out.println("Error la fila no exixte");
-            verificacion=false;
+            verificacion=true;
         }
         if (columna>8 || columna<-1){
             System.out.println("Error la columna no existe");
-            verificacion=false;
+            verificacion=true;
         } return verificacion;
+    }
+
+    public int[][] getSudoku() {
+        return sudoku;
+    }
+
+    public void setSudoku(int[][] sudoku) {
+        this.sudoku = sudoku;
+    }
+
+    public posicion[] getListaPosiciones() {
+        return listaPosiciones;
+    }
+
+    public void setListaPosiciones(posicion[] listaPosiciones) {
+        this.listaPosiciones = listaPosiciones;
     }
 }
