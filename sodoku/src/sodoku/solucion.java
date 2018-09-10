@@ -14,8 +14,7 @@ import java.util.Scanner;
 public class solucion {
     private boolean continuar= true;
     private boolean ciclo= false;//ciclo para romper el for
-    private int fila,columna,numero,cantidadNumeros;
-    private int sudoku[][]=new int[9][9];
+    private int fila,columna,numero,cantidadNumeros;    
     private posicion listaPosiciones[]=null;
 /**
  *  menu principal
