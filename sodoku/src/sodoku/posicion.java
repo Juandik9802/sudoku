@@ -15,7 +15,7 @@ public class posicion {
     private int fila;
     private int numeroFijo;
 
-    public posicion(int columna, int fila, int numeroFijo) {
+    public posicion(int fila, int columna, int numeroFijo) {
         this.columna = columna;
         this.fila = fila;
         this.numeroFijo = numeroFijo;
