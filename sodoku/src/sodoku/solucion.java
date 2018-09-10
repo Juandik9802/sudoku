@@ -52,7 +52,7 @@ public class solucion {
             
         
     /**
-     * mensaje de bienvenida
+     * mensaje de bienvenida y pedir cuantos numeros
      */
     private void bienvenida(){        
         Scanner entrada =new Scanner(System.in);
@@ -102,19 +102,7 @@ public class solucion {
         } return verificacion;
     }
 
-    public int[][] getSudoku() {
-        return sudoku;
-    }
-
-    public void setSudoku(int[][] sudoku) {
-        this.sudoku = sudoku;
-    }
-
     public posicion[] getListaPosiciones() {
         return listaPosiciones;
-    }
-
-    public void setListaPosiciones(posicion[] listaPosiciones) {
-        this.listaPosiciones = listaPosiciones;
     }
 }
