@@ -14,19 +14,18 @@ import java.util.Scanner;
 public class solucion {
     
     private int fila,columna,numero,cantidadNumeros;
-    private int soduku[];
-    private posicion listaPociciciones[];
+    private int sudoku[][]=new int[9][9];
+    private posicion listaPosiciones[]=null;
 /**
  *  menu principal
  */
     public solucion() {        
         bienvenida();
-        cantidadNumeros-=1;
-        sodoku.posicion listaPocicicione = listaPociciciones[cantidadNumeros];
+        posicion listaPosiciones[] = new posicion[cantidadNumeros];
         for (int i=0;i<=cantidadNumeros;i++){
-            posicion(i);
-        }
-        
+            posicion();
+            listaPosiciones[i]=new posicion(fila,columna,numero);
+        }        
     }
     /**
      * mensaje de bienbenida
@@ -35,13 +34,13 @@ public class solucion {
         Scanner entrada =new Scanner(System.in);
         System.out.println("Bienvenidos al solucionador del sudoku");
         System.out.println("cuantos numeros fijos desea poner");
-        cantidadNumeros=entrada.nextInt();
+        this.cantidadNumeros=entrada.nextInt();
      }
     
     /**
      *  tomar los valores predeterminados 
      */
-    private void posicion(int localisacion){
+    private void posicion(){
         Scanner entrada =new Scanner(System.in);
         System.out.println("Por favor digite el número de la columna donde desea poner el numero");
         fila= entrada.nextInt();
@@ -49,7 +48,5 @@ public class solucion {
         columna= entrada.nextInt();
         System.out.println("Por favor digite el número  a colocar el sudoku");
         numero= entrada.nextInt();
-        
-        listaPociciciones[localisacion](fila,columna,numero);
     }   
 }
