@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class solucion {
     
+    private boolean ciclo= false;//ciclo para romper el for
     private int fila,columna,numero,cantidadNumeros;
     private int sudoku[][]=new int[9][9];
     private posicion listaPosiciones[]=null;
@@ -25,6 +26,10 @@ public class solucion {
         for (int i=0;i<cantidadNumeros;i++){
             posicion();
             listaPosiciones[i]=new posicion(fila,columna,numero);
+            System.out.println("////////////////////////////////////////////////////////////////////////////");
+        if (this.ciclo==true){
+            break;
+        }
         }        
     }
     /**
@@ -41,12 +46,37 @@ public class solucion {
      *  tomar los valores predeterminados 
      */
     private void posicion(){
-        Scanner entrada =new Scanner(System.in);
-        System.out.println("Por favor digite el número de la columna donde desea poner el numero");
-        fila= entrada.nextInt();
-        System.out.println("Por favor digite el número de la fila donde desea poner el numero");
-        columna= entrada.nextInt();
-        System.out.println("Por favor digite el número  a colocar el sudoku");
-        numero= entrada.nextInt();
-    }   
+        try{
+            Scanner entrada =new Scanner(System.in);
+            System.out.println("Por favor digite el número de la columna donde desea poner el numero");
+            fila= entrada.nextInt();
+            System.out.println("Por favor digite el número de la fila donde desea poner el numero");
+            columna= entrada.nextInt();
+            System.out.println("Por favor digite el número  a colocar el sudoku");
+            numero= entrada.nextInt();
+        }catch(Exception error){
+            System.out.println("erro de asignacion");
+            
+            this.ciclo= true;
+        }
+        
+    }
+    /**
+     * 
+     * @param fila
+     * @param columna
+     * @return retorna verdadero si numero de la fila o columna esta entre 0 y 8
+     *         delo contrario es falso
+     */
+    private boolean validarfilaColumna(int fila, int columna){
+        boolean verificacion=true;
+        if (fila>8 || fila<-1){
+            System.out.println("Error la fila no exixte");
+            verificacion=false;
+        }
+        if (columna>8 || columna<-1){
+            System.out.println("Error la columna no existe");
+            verificacion=false;
+        } return verificacion;
+    }
 }
