@@ -12,10 +12,14 @@ import java.util.Scanner;
  * @author Juan Diego Pachón
  */
 public class solucion {
+    
+    private int contador;
     private boolean continuar= true;
     private boolean ciclo= false;//ciclo para romper el for
-    private int fila,columna,numero,cantidadNumeros;    
-    private posicion listaPosiciones[]=null;
+    private int fila,columna,numero;
+    public int cantidadNumeros;
+    public posicion listaPosiciones[]=null;
+    private int sudoku[][]=new int[9][9];
 /**
  *  menu principal
  */
@@ -31,7 +35,11 @@ public class solucion {
                 if (this.ciclo==true){
                     break;
                 }
-            }try{
+            }
+            //operaciones operaciones = new operaciones();
+           asignar();
+           resolver();
+            /*try{
                 System.out.println("Desea continuar");
                 System.out.println("1. continuar");
                 System.out.println("2. salir");
@@ -41,7 +49,8 @@ public class solucion {
                 }
             }catch(Exception error){
                 System.out.println("ERROR");
-            }
+            }*/
+            //asignar();
             
         }while(continuar);
             
@@ -74,14 +83,17 @@ public class solucion {
             numero= entrada.nextInt();
             if (validarfilaColumna(fila,columna)== true){
                 this.ciclo= true;
-            }
-           
+            }else{
+                this.sudoku[fila][columna]=numero;
+            }    
         }catch(Exception error){
             System.out.println("Error de asignacion");            
             this.ciclo= true;
         }
-        
-    }
+                
+                
+    }    
+    
     /**
      * 
      * @param fila
@@ -100,8 +112,27 @@ public class solucion {
             verificacion=true;
         } return verificacion;
     }
-
-    public posicion[] getListaPosiciones() {
-        return listaPosiciones;
+    
+    private void asignar() {
+        this.continuar=false;
+        for(int j =0;j<9;j++){
+            for(int k=0;k<9;k++){
+                System.out.print(" "+sudoku[j][k]);
+            }
+            System.out.println("");
+        }
+    } 
+    
+    private void resolver(){
+        for (int i=0;i<9;i++){
+            for(int j=0; j<9;j++){
+                for(int k=0;k<9;k++){
+                    
+                }
+                for(int l=0;l<9;l++){
+                    
+                }
+            }
+        }
     }
 }

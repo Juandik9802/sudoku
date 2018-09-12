@@ -10,19 +10,15 @@ package sodoku;
  * @author Juan Diego Pachón
  */
 public class operaciones {
-    private int sudoku[][]=new int[9][9];
-
+    private solucion a;
+    private posicion lista[]=null;
+    
     public operaciones() {
-        ubicarPredeterminados();
-        
+        ubicarPredeterminados();   
     }
 
     private void ubicarPredeterminados() {
-        for(int i=0;i<9;i++){
-            for(int j=0;i<9;j++){
-                
-            }
-        }
+        
     }
     
 }
