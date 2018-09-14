@@ -18,8 +18,9 @@ public class solucion {
     private boolean ciclo= false;//ciclo para romper el for
     private int fila,columna,numero;
     public int cantidadNumeros;
-    public posicion listaPosiciones[]=null;
-    private int sudoku[][]=new int[9][9];
+    public int sudoku[][];
+    //public casillas listaPosiciones[][]=new casillas[9][9];
+    
 /**
  *  menu principal
  */
@@ -27,19 +28,17 @@ public class solucion {
         Scanner entrada =new Scanner(System.in);
         do{
             bienvenida();
-            posicion listaPosiciones[] = new posicion[cantidadNumeros];
+            casillas listaPosiciones[] = new casillas[cantidadNumeros];
             for (int i=0;i<cantidadNumeros;i++){
-                posicion();
-                listaPosiciones[i]=new posicion(fila,columna,numero);
+                //listaPosiciones[i]=new casillas(fila,columna,numero,false);
                 System.out.println("////////////////////////////////////////////////////////////////////////////");
                 if (this.ciclo==true){
                     break;
                 }
             }
-            //operaciones operaciones = new operaciones();
-           asignar();
-           resolver();
-            /*try{
+            //asignar();
+            //resolver();
+            try{
                 System.out.println("Desea continuar");
                 System.out.println("1. continuar");
                 System.out.println("2. salir");
@@ -49,16 +48,12 @@ public class solucion {
                 }
             }catch(Exception error){
                 System.out.println("ERROR");
-            }*/
+            }
             //asignar();
             
         }while(continuar);
-            
-        
     }
-    
-            
-        
+           
     /**
      * mensaje de bienvenida y pedir cuantos numeros
      */
@@ -113,26 +108,26 @@ public class solucion {
         } return verificacion;
     }
     
+    /**
+     * impromir matriz
+     */
     private void asignar() {
         this.continuar=false;
         for(int j =0;j<9;j++){
             for(int k=0;k<9;k++){
-                System.out.print(" "+sudoku[j][k]);
+                //System.out.print(" "+sudoku[j][k]);
             }
             System.out.println("");
         }
     } 
     
     private void resolver(){
-        for (int i=0;i<9;i++){
-            for(int j=0; j<9;j++){
-                for(int k=0;k<9;k++){
-                    
-                }
-                for(int l=0;l<9;l++){
-                    
-                }
-            }
-        }
+        
+    }
+    
+    private boolean filaVerificacion(int i){
+        boolean resultado=true;
+        
+        return resultado;
     }
 }
